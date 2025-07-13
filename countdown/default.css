@@ -68,7 +68,7 @@
   }
 }
 
-@media (max-width: 300px) {
+@media (min-width: 300px) {
   .simply-countdown > .simply-section {
     width: 40px;
     height: 40px;
