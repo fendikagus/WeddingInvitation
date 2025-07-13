@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=600, user-scalable=no">
+    <title>Wedding Invitation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .custom-content-box {
+            display: flex;
+            flex-direction: column;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        @media (min-width: 640px) {
+            .custom-content-box {
+                flex-direction: row;
+            }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        
+        .payment-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .copied-message {
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .copied-message.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .copy-btn:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="bg-pink-50 min-h-screen py-4 px-4">
+    <div class="max-w-[600px] mx-auto">
+        <!-- Header Section -->
+        
+
+        <!-- RSVP Section -->
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8 fade-in">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Your Custom Content</h2>
+            <div class="p-4 border-2 border-dashed border-gray-300 rounded-lg min-h-[200px]">
+                <!-- Your custom content goes here -->
+            </div>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6 mb-8 fade-in">
+            <h2 class="text-2xl font-bold text-gray-800 mb-4 text-center">Your Custom Content</h2>
+            <div class="p-4 border-2 border-dashed border-gray-300 rounded-lg min-h-[200px]">
+                <!-- Your custom content goes here -->
+            </div>
+        </div>
+
+        
+        
+        <!-- Footer -->
+        <footer class="text-center text-gray-500 text-sm fade-in" style="animation-delay: 0.8s;">
+            <p>Thank you for celebrating with us ❤️</p>
+            <p class="mt-1">© 2023 GiftPayment. All rights reserved.</p>
+        </footer>
+    </div>
+    
+    <script>
+        function copyToClipboard(elementId) {
+            const element = document.getElementById(elementId);
+            const text = element.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                // Show copied message
+                const card = element.closest('.payment-card');
+                const message = card.querySelector('.copied-message');
+                
+                message.classList.add('show');
+                setTimeout(() => {
+                    message.classList.remove('show');
+                }, 1500);
+                
+                // Add visual feedback
+                const copyBtn = card.querySelector('.copy-btn');
+                copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+                copyBtn.classList.add('text-green-600');
+                
+                setTimeout(() => {
+                    copyBtn.innerHTML = '<i class="far fa-copy"></i>';
+                    copyBtn.classList.remove('text-green-600');
+                }, 1000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        // Add slight delay for animation sequence
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.fade-in');
+            cards.forEach((card, index) => {
+                card.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
+</body>
+</html>
+

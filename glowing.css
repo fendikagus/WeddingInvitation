@@ -1,0 +1,101 @@
+.custom-content-box {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+    .custom-content-box {
+        flex-direction: row;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.payment-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.copied-message {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.copied-message.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.copy-btn:active {
+    transform: scale(0.95);
+}
+
+.content-box {
+  background-color: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(1px);
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  margin: 40px auto;
+}
+
+.gambar-bergerak {
+  position: fixed; /* agar tetap di posisi saat scroll */
+  bottom: 0;
+  right: 0;
+  width: 120px; /* atau ukuran sesuai kebutuhan */
+  z-index: 1;
+  pointer-events: none; /* tidak mengganggu klik di bawahnya */
+  animation: goyang 4s ease-in-out infinite;
+  opacity: 0.9;
+}
+
+/* Animasi goyang naik-turun */
+@keyframes goyang {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-20px); }
+  100% { transform: translateY(0); }
+}
+
+.gambar-berputar {
+  position: fixed;         /* Tetap di posisi layar saat scroll */
+  bottom: 0;               /* Bisa ubah ke top, left, right sesuai kebutuhan */
+  right: 0;
+  width: 120px;
+  z-index: 1;
+  pointer-events: none;
+  animation: mutar 5s linear infinite; /* Putar terus tanpa henti */
+  opacity: 0.9;
+}
+
+@keyframes mutar {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(80deg); }
+}
+
+
+
+
+
+
