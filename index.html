@@ -119,41 +119,9 @@
         integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
         crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bs5-lightbox@1.8.5/dist/index.bundle.min.js"></script>
-    <script>
-        const urlParams = new URLSearchParams(window.location.search);
-        const nama = urlParams.get('nama') || '';
-        const pronoun = urlParams.get('p') || 'Bapak/Ibu/Saudara/I';
-        const namaContainer = document.querySelector('.hero h4 span');
-        namaContainer.innerText = `${pronoun} ${nama}`.replace(/ ,$/, ',');
-
-        document.querySelector('#nama').value = nama;
-    </script>
-    <script>
-        document.getElementById('copyIcon').addEventListener('click', function () {
-            const text = document.getElementById('textToCopy').innerText;
-
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    alert('Text copied: ' + text);
-                })
-                .catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-        });
-
-        document.getElementById('copyIcons').addEventListener('click', function () {
-            const text = document.getElementById('textToCopys').innerText;
-
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    alert('Text copied: ' + text);
-                })
-                .catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
-        });
-    </script>
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    
+    
     <script>
         AOS.init();
     </script>
